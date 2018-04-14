@@ -9,6 +9,40 @@ from eKids_bot.utils import Round
 bot = telebot.TeleBot(bot_properties.token)
 user_round = Round()
 
+@bot.message_handler(commands=['commands'])
+def get_commands(message):
+    bot.send_message(message.chat.id, 'Все доступные команды:\n'
+                                      '/presetnation - получить файл презентации\n'
+                                      '/code1 - question\n'
+                                      '/code2 - data_item\n'
+                                      '/code3 - Round()\n'
+                                      '/code4 - Bot behaviour\n'
+                                      '/code5 - check_answer')
+
+@bot.message_handler(commands=['code1'])
+def get_code1(message):
+    bot.send_message(message.chat.id, 'Code 1:\n https://codeshare.io/5e89nK')
+
+@bot.message_handler(commands=['code2'])
+def get_code2(message):
+    bot.send_message(message.chat.id, 'Code 2:\n https://codeshare.io/anNnyX')
+
+@bot.message_handler(commands=['code3'])
+def get_code3(message):
+    bot.send_message(message.chat.id, 'Code 3:\n https://codeshare.io/5opPjp')
+
+@bot.message_handler(commands=['code4'])
+def get_code4(message):
+    bot.send_message(message.chat.id, 'Code 4:\n https://codeshare.io/a3pY4v')
+
+@bot.message_handler(commands=['code5'])
+def get_code5(message):
+    bot.send_message(message.chat.id, 'Code 5:\n https://codeshare.io/GkNAl3')
+
+@bot.message_handler(commands=['presetnation'])
+def get_presentation(message):
+    bot.send_message(message.chat.id, 'Presenttion:\n https://www.dropbox.com/s/94qjek6x3i1vipc/TelegramBot2.pptx?dl=0')
+
 @bot.message_handler(commands=['game'])
 def game(message):
     user_round.get_new_round()
